@@ -65,6 +65,6 @@ app.use(duroodRoutes);
 sequelize
   .sync()
   .then(() => {
-    app.listen(3000);
+    app.listen(process.env.port || 3000);
   })
   .catch((err) => console.log(err));
