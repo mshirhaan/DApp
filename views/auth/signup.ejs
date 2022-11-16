@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+
+<form class="auth" action="/signup" method="post">
+  <% if(errorMessage) { %>
+  <div class="error"><%= errorMessage %></div>
+  <% } %>
+
+  <div class="container">
+    <label for="name"><b>Full Name</b></label>
+    <input
+      class="<%= validationErrors.find(e => e.param == 'name') ? 'invalid' : '' %>"
+      type="text"
+      placeholder="Enter your Full name"
+      name="name"
+      value="<%= oldInput.name %>"
+      required
+    />
+
+    <label for="email"><b>Email</b></label>
+    <input
+      class="<%= validationErrors.find(e => e.param == 'email') ? 'invalid' : '' %>"
+      type="email"
+      placeholder="Enter Email"
+      name="email"
+      value="<%= oldInput.email %>"
+      required
+    />
+
+    <label for="psw"><b>Password</b></label>
+    <input
+      class="<%= validationErrors.find(e => e.param == 'password') ? 'invalid' : '' %>"
+      type="password"
+      placeholder="Enter Password"
+      name="password"
+      value="<%= oldInput.password %>"
+      required
+    />
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    <button type="submit">Create Account</button>
+  </div>
+</form>

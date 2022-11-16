@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/counter.css" />
+  </head>
+  <body>
+    <div class="topnav">
+      <a class="<%= path == '/' ? 'active' : '' %> left" href="/">Home</a>
+      <% if(isAuthenticated) { %>
+      <a class="<%= path == '/recite' ? 'active' : '' %> left" href="/recite"
+        >Recite</a
+      >
+      <% } %> <% if(!isAuthenticated) { %>
+      <a class="<%= path == '/login' ? 'active' : '' %> right" href="/login"
+        >Login</a
+      >
+      <% } %> <% if(!isAuthenticated) { %>
+      <a class="<%= path == '/signup' ? 'active' : '' %> right" href="/signup"
+        >Sign Up</a
+      >
+      <% } %>
+      <a class="right"><%= name %></a>
+      <% if(isAuthenticated) { %>
+      <a class="right" href="/logout">Logout</a>
+      <% } %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<%- include('../includes/head.ejs') %>
+<div id="alert">
+  <h2></h2>
+</div>
+     <main>
+      <div class="buttonscont">
+        <div class="reset"><span>RESET</span></div>
+        <div class="minus"><span>-</span></div>
+        <div class="themes"><span class='theme'>BLUE</span></div>
+      </div>
+      <div class="counter"><span class="number" id="durood-count">0</span></div>
+      <div class="submit" onclick="submitDuroodCount('<%= csrfToken %>')"><span>SUBMIT</span></div>
+    </main>
+      <script src="counter.js"></script>
+  </body>
+</html>

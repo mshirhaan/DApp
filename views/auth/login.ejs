@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+
+<form class="auth" action="/login" method="post">
+  <% if(errorMessage) { %>
+  <div class="error"><%= errorMessage %></div>
+  <% } %>
+  <div class="container">
+    <label for="email"><b>Email</b></label>
+    <input
+      class="<%= validationErrors.find(e => e.param == 'email') ? 'invalid' : '' %>"
+      type="email"
+      placeholder="Enter Email"
+      name="email"
+      required
+      value="<%= oldInput.email %>"
+    />
+
+    <label for="psw"><b>Password</b></label>
+    <input
+      class="<%= validationErrors.find(e => e.param == 'password') ? 'invalid' : '' %>"
+      type="password"
+      placeholder="Enter Password"
+      name="password"
+      required
+      value="<%= oldInput.password %>"
+    />
+
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    <button type="submit">Login</button>
+  </div>
+</form>
